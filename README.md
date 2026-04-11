@@ -19,12 +19,12 @@ Explore more at [PicoGK.org](https://picogk.org).
 You can generate a sample STL directly from this repository:
 
 ```bash
-dotnet run --project /absolute/path/to/PicoGK/examples/GenerateStl
+dotnet run --project ./examples/GenerateStl
 ```
 
 By default this writes `PicoGK.stl` to your current directory.  
 You can also pass a custom output path:
 
 ```bash
-dotnet run --project /absolute/path/to/PicoGK/examples/GenerateStl -- /absolute/path/to/output/model.stl
+dotnet run --project ./examples/GenerateStl -- ./output/model.stl
 ```
