@@ -5,14 +5,15 @@ string outputPath = args.Length > 0
     : Path.Combine(Directory.GetCurrentDirectory(), "PicoGK.stl");
 
 string? outputDirectory = Path.GetDirectoryName(outputPath);
-if (!string.IsNullOrEmpty(outputDirectory))
+if (!string.IsNullOrEmpty(outputDirectory) && !Directory.Exists(outputDirectory))
 {
     Directory.CreateDirectory(outputDirectory);
 }
 
 try
 {
-    using Library library = new(0.1f);
+    const float voxelSizeMm = 0.1f;
+    using Library library = new(voxelSizeMm);
     Voxels voxels = new(Utils.mshCreateCube());
     voxels.mshAsMesh().SaveToStlFile(outputPath);
 
