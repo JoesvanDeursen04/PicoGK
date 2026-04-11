@@ -5,7 +5,7 @@ string outputPath = args.Length > 0
     : Path.Combine(Directory.GetCurrentDirectory(), "PicoGK.stl");
 
 string? outputDirectory = Path.GetDirectoryName(outputPath);
-if (!string.IsNullOrEmpty(outputDirectory) && !Directory.Exists(outputDirectory))
+if (!string.IsNullOrWhiteSpace(outputDirectory) && !Directory.Exists(outputDirectory))
 {
     Directory.CreateDirectory(outputDirectory);
 }
@@ -21,7 +21,7 @@ try
 }
 catch (Exception ex)
 {
-    Console.Error.WriteLine($"Failed to generate STL file at: {outputPath}");
+    Console.Error.WriteLine($"Failed to generate STL file at {outputPath}");
     Console.Error.WriteLine(ex.Message);
     Environment.ExitCode = 1;
 }
